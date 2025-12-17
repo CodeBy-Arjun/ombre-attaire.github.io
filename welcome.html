@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ombre Attire - Welcome</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Body & fonts */
+body, html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #f8f4f0, #fff);
+}
+
+/* Fullscreen hero with gradient overlay */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1514995669114-2a2b82a986f6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+}
+
+/* Animated gradient overlay */
+.hero::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: linear-gradient(-45deg, rgba(255,0,150,0.2), rgba(0,204,255,0.2), rgba(255,255,0,0.2), rgba(255,0,255,0.2));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hero content container */
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #000;
+    z-index: 2;
+    max-width: 90%;
+    animation: fadeInUp 2s ease forwards;
+    background: rgba(255, 255, 255, 0.7); /* semi-transparent container */
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Hero text */
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 1s;
+}
+
+/* CTA button */
+.hero-content a {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.hero-content a:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+
+/* Floating particles */
+.particles {
+    position: absolute;
+    width: 100%; height: 100%;
+    top:0; left:0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particles span {
+    position: absolute;
+    display: block;
+    width: 10px; height: 10px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) translateX(0) scale(0.5);}
+    50% { transform: translateY(50vh) translateX(50px) scale(1);}
+    100% { transform: translateY(-10vh) translateX(-50px) scale(0.5);}
+}
+
+/* Scroll down indicator */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0);}
+    50% { transform: translateX(-50%) translateY(-15px);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .hero-content { padding: 30px 20px; }
+}
+
+/* Header styling */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 10;
+    background: rgba(255,255,255,0.2); /* semi-transparent */
+    backdrop-filter: blur(10px);
+}
+
+/* Logo styling */
+.header .logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.header .logo img {
+    width: 240px;
+    height: 120px;
+    margin-right: 10px;
+    
+    object-fit: cover;
+}
+
+/* Fashion tattoos styling */
+.fashion-tattoo {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(0,0,0,0.3);
+    animation: floatTattoo 8s linear infinite;
+}
+
+.fashion-tattoo.tattoo1 { top: 5px; left: 10%; }
+.fashion-tattoo.tattoo2 { top: 10px; right: 20%; }
+.fashion-tattoo.tattoo3 { top: 15px; left: 50%; }
+
+/* Floating animation for tattoos */
+@keyframes floatTattoo {
+    0% { transform: translateY(0) rotate(0deg);}
+    50% { transform: translateY(5px) rotate(15deg);}
+    100% { transform: translateY(0) rotate(0deg);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .header { padding: 10px 20px; }
+    .fashion-tattoo { font-size: 1rem; }
+}
+
+
+
+</style>
+</head>
+
+<body>
+    <!-- HEADER START -->
+<header class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Ombre Attire Logo">
+        <span class="brand-name">Ombre Attire</span>
+    </div>
+
+    <!-- Fashion tattoos -->
+    <div class="fashion-tattoo tattoo1">✦</div>
+    <div class="fashion-tattoo tattoo2">✧</div>
+    <div class="fashion-tattoo tattoo3">★</div>
+</header>
+<!-- HEADER END -->
+
+
+<div class="hero">
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-content">
+        <h1>Ombre Attire</h1>
+        <p>Where Elegance Meets Style</p>
+        <a href="main.html">Welcome</a>
+    </div>
+
+    <div class="scroll-down">&#x21E3;</div>
+</div>
+
+<script>
+// Create floating particles dynamically
+const particlesContainer = document.getElementById('particles');
+for(let i=0; i<30; i++){
+    let span = document.createElement('span');
+    span.style.left = Math.random() * 100 + 'vw';
+    span.style.animationDuration = (5 + Math.random() * 5) + 's';
+    span.style.width = (5 + Math.random()*15)+'px';
+    span.style.height = span.style.width;
+    span.style.opacity = Math.random();
+    particlesContainer.appendChild(span);
+}
+</script>
+
+</body>
+</html>

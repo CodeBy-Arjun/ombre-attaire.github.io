@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ombre Attire - Full Header</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- FontAwesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body, html { font-family: 'Montserrat', sans-serif; }
+
+/* HEADER STYLING */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: background 0.3s, padding 0.3s;
+}
+
+/* Shrink header on scroll */
+.header.shrink {
+    padding: 10px 50px;
+    background: rgba(248, 248, 248, 0.911);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 240px;
+    height: 120px;
+    border-radius: 5%;
+    object-fit: cover;
+}
+
+.logo span {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #000;
+    letter-spacing: 2px;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ff0080;
+    transform: scale(1.05);
+}
+
+/* Social icons */
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social a {
+    color: #000;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social a:hover { color: #ff0080; }
+
+/* Floating fashion tattoos */
+.fashion-tattoo {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(0,0,0,0.2);
+    animation: floatTattoo 8s linear infinite;
+    z-index: 50;
+}
+.fashion-tattoo.tattoo1 { top: 5px; left: 10%; }
+.fashion-tattoo.tattoo2 { top: 10px; right: 20%; }
+.fashion-tattoo.tattoo3 { top: 15px; left: 50%; }
+
+@keyframes floatTattoo {
+    0% { transform: translateY(0) rotate(0deg);}
+    50% { transform: translateY(5px) rotate(15deg);}
+    100% { transform: translateY(0) rotate(0deg);}
+}
+
+/* Responsive */
+@media(max-width: 1024px){
+    .header { padding: 12px 30px; }
+    .logo span { font-size: 1.7rem; }
+    .nav a { font-size: 0.9rem; }
+    .social a { font-size: 1rem; }
+}
+
+@media(max-width: 768px){
+    .header { padding: 10px 20px; flex-wrap: wrap; gap:10px; }
+    .nav { display: none; } /* Can toggle via burger menu */
+    .social { order: 3; }
+}
+
+/* VIDEO SECTION BELOW HEADER */
+.video-hero {
+  position: relative;
+  height: calc(100vh - 160px); /* header height approx 160px */
+  margin-top: 160px; /* push below header */
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* fills the section perfectly */
+  filter: none; /* remove any blur */
+}
+
+/* OVERLAY CONTENT */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GLASS CONTAINER */
+.glass-box {
+  padding: 60px 90px;
+  background: rgba(255,255,255,0.25); /* semi-transparent */
+  border-radius: 28px;
+  border: 1.5px solid rgba(218, 55, 55, 0.979);
+  box-shadow:
+    0 0 20px rgba(255,150,220,0.5),
+    inset 0 0 20px rgba(190,185,185,0.5);
+  text-align: center;
+  animation: glow 4s ease-in-out infinite;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 20px rgba(211,116,179,0.5), inset 0 0 20px rgba(214,74,74,0.5); }
+  50% { box-shadow: 0 0 35px rgba(255,120,210,0.9), inset 0 0 25px rgba(255,255,255,0.4); }
+}
+
+/* BRAND TEXT */
+.brand {
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+/* QUOTE TEXT */
+.quote {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  color: #000000;
+  animation: fadeText 6s ease-in-out infinite;
+}
+
+/* TEXT ANIMATION */
+@keyframes fadeText {
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .glass-box {
+    padding: 40px 45px;
+  }
+  .brand {
+    font-size: 2.2rem;
+  }
+  .quote {
+    font-size: 1rem;
+  }
+}
+
+/* Reset */
+  * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+
+  body {
+    background: #fff6f9; /* soft background */
+  }
+
+  /* Petal Animation */
+  .petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Featured Categories Section */
+  .featured-categories {
+    position: relative;
+    padding: 80px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .featured-categories h2 {
+    font-size: 2.5em;
+    color: #ff6f91;
+    margin-bottom: 50px;
+  }
+
+  .categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .category-card {
+    background: #ffeef3; /* light eye-catching color */
+    width: 220px;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .category-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .category-card:hover img {
+    transform: scale(1.1) rotate(1deg);
+  }
+
+  .category-card h3 {
+    margin: 15px 0 0;
+    font-size: 1.2em;
+    color: #ff4d6d;
+  }
+
+  /* Wave hover effect */
+  .category-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 50%;
+    background: rgba(255,111,145,0.2);
+    border-radius: 40%;
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+  }
+
+  .category-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* SECTION */
+.new-arrivals {
+    padding: 90px 0;
+    background: linear-gradient(180deg, #faf7f4, #ffffff);
+}
+
+.new-arrivals h2 {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.new-arrivals p.section-subtitle {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.product-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* PRODUCT INFO */
+.product-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.product-info h5 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.product-info span {
+    color: #b28c6f;
+    font-size: 15px;
+}
+
+/* CAROUSEL CONTROLS */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* FADE ANIMATION */
+.carousel-item {
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-img img {
+        height: 300px;
+    }
+}
+body{
+font-size:12px;
+border-radius:20px;
+}
+
+
+.actions{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+background:rgba(0,0,0,0.55);
+opacity:0;
+transition:0.4s ease;
+}
+
+
+.product-card:hover .actions{
+opacity:1;
+}
+
+
+.actions button{
+background:#fff;
+border:none;
+padding:10px 16px;
+border-radius:25px;
+font-size:13px;
+cursor:pointer;
+transition:0.3s;
+}
+
+
+.actions button:hover{
+background:#000;
+color:#fff;
+}
+
+
+.product-info{
+padding:18px;
+}
+
+
+.product-info h4{
+font-size:16px;
+margin:0 0 6px;
+}
+
+
+.price{
+font-weight:600;
+}
+
+
+.old-price{
+color:#999;
+text-decoration:line-through;
+margin-left:8px;
+font-weight:400;
+}
+
+
+@media(max-width:600px){
+.section-title{font-size:28px}
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+.promo-section {
+    min-height: 90vh;
+    padding: 60px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: linear-gradient(120deg, #111, #2b2b2b);
+    color: #fff;
+    overflow: hidden;
+}
+
+.promo-content {
+    max-width: 520px;
+    animation: slideFade 1.2s ease forwards;
+}
+
+.promo-tag {
+    display: inline-block;
+    background: #ff3c78;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.promo-content h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #ffcc70;
+    animation: glow 2s infinite alternate;
+}
+
+.promo-content p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.promo-btn {
+    position: relative;
+    padding: 14px 40px;
+    font-size: 15px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.promo-btn:hover {
+    background: #ff3c78;
+    color: #fff;
+}
+
+.promo-btn span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: rgba(255,255,255,0.2);
+    transition: 0.4s;
+}
+
+.promo-btn:hover span {
+    left: 0;
+}
+
+.promo-image {
+    animation: float 4s ease-in-out infinite;
+}
+
+.promo-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+/* Animations */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ffcc70;
+    }
+    to {
+        text-shadow: 0 0 25px #ffcc70;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .promo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-content h1 {
+        font-size: 36px;
+    }
+}
+
+
+
+
+.lookbook-section {
+  perspective: 1200px;
+}
+
+.book-container {
+  width: 320px;
+  height: 420px;
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Cover */
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #111, #444);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-origin: left;
+  transition: transform 1s ease;
+  z-index: 10;
+  border-radius: 6px;
+}
+
+.cover h3 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+/* Pages */
+.pages {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transform-origin: left;
+  transition: transform 1s ease;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Hover Animations */
+.book-container:hover .cover {
+  transform: rotateY(-160deg);
+}
+
+.book-container:hover .page:nth-child(1) {
+  transform: rotateY(-20deg);
+}
+
+.book-container:hover .page:nth-child(2) {
+  transform: rotateY(-40deg);
+}
+
+.book-container:hover .page:nth-child(3) {
+  transform: rotateY(-60deg);
+}
+
+.book-container:hover .page:nth-child(4) {
+  transform: rotateY(-80deg);
+}
+
+
+
+.newsletter-section {
+  position: relative;
+  padding: 100px 20px;
+  background: url("newsletter-bg.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.newsletter-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.8)
+  );
+}
+
+.newsletter-content {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  padding: 60px 40px;
+  border-radius: 20px;
+  animation: fadeUp 1.2s ease;
+}
+
+.newsletter-content h2 {
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 250px;
+  padding: 15px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.newsletter-form button {
+  padding: 15px 35px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 204, 51, 0.4);
+}
+
+.newsletter-note {
+  display: block;
+  margin-top: 20px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.newsletter-success {
+  display: none;
+  margin-top: 25px;
+  font-size: 16px;
+  color: #ffcc33;
+  animation: pop 0.6s ease;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .newsletter-content h2 {
+    font-size: 32px;
+  }
+}
+
+
+
+
+
+
+
+.testimonials-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 42px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(255, 204, 102, 0.15);
+}
+
+.stars {
+  color: #ffcc66;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.review {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+.testimonial-card h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.testimonial-card span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+
+
+
+
+.fashion-footer {
+  position: relative;
+  background: linear-gradient(135deg, #fff1eb, #ace0f9);
+  padding: 90px 20px 30px;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.footer-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.4), transparent 70%);
+  top: -150px;
+  right: -150px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-brand h2 {
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+.footer-newsletter {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
+.footer-newsletter button {
+  padding: 12px 22px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-newsletter button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 154, 158, 0.4);
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #ff9a9e;
+  transition: width 0.3s;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.social-icons a {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  background: #ffdde1;
+}
+
+.payment-title {
+  margin-bottom: 10px;
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.payments span {
+  padding: 8px 14px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-brand h2 {
+    font-size: 26px;
+  }
+}
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Ombre Attire Logo">
+        <span>Ombre Attire</span>
+    </div>
+    <nav class="nav">
+        <a href="main.html">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+    <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+    </div>
+    <div class="fashion-tattoo tattoo1">✦</div>
+    <div class="fashion-tattoo tattoo2">✧</div>
+    <div class="fashion-tattoo tattoo3">★</div>
+</header>
+
+<!-- VIDEO HERO SECTION -->
+<section class="video-hero">
+  <video autoplay muted loop playsinline>
+    <source src="Image2Video_Animate this image with .mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+
+  <div class="overlay">
+    <div class="glass-box">
+      <h1 class="brand">Ombre Attire</h1>
+      <p class="quote">Elegance is an attitude</p>
+    </div>
+  </div>
+</section>
+<section><div class="featured-categories">
+  <h2>Featured Categories</h2>
+  <div class="categories-container">
+    <div class="category-card">
+      <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Even Dressing">
+      <h3>Even Dressing</h3>
+    </div>
+    <div class="category-card">
+      <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Customised Dressing">
+      <h3>Customised Dressing</h3>
+    </div>
+    <div class="category-card">
+      <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Indo Western">
+      <h3>Ready to Wear Indo Western</h3>
+    </div>
+    <div class="category-card">
+      <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Wedding Trousseau">
+      <h3>Wedding Trousseau Curation</h3>
+    </div>
+    <div class="category-card">
+      <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Traditional Outfits">
+      <h3>Traditional Outfits</h3>
+    </div>
+    <!-- Add more categories as needed -->
+  </div>
+</div></section>
+
+<section class="new-arrivals text-center">
+    <div class="container">
+
+        <h2>New Arrivals</h2>
+        <p class="section-subtitle">Trending styles curated for modern elegance</p>
+
+        <div id="arrivalCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <!-- SLIDE 1 -->
+                <div class="carousel-item active">
+                    <div class="row g-4 justify-content-center">
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Evening Silk Gown</h5>
+                                    <span>₹14,500</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Indo-Western Set</h5>
+                                    <span>₹11,200</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 d-none d-md-block">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Bridal Trousseau Look</h5>
+                                    <span>₹24,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Classic Ethnic Wear</h5>
+                                    <span>₹9,800</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Contemporary Saree</h5>
+                                    <span>₹12,600</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 d-none d-md-block">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="">
+                                </div>
+                                <div class="product-info">
+                                    <h5>Designer Lehenga</h5>
+                                    <span>₹28,900</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTROLS -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#arrivalCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#arrivalCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<section class="featured-section">
+<h2 class="section-title">Featured Products</h2>
+<p class="section-subtitle">Best Sellers & Trending Styles</p>
+
+
+<div class="products-grid">
+
+
+<div class="product-card">
+<div class="product-img">
+<span class="badge">Best Seller</span>
+<img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Dress">
+<div class="actions">
+<button>Add to Cart</button>
+<button>Quick View</button>
+</div>
+</div>
+<div class="product-info">
+<h4>Elegant Evening Dress</h4>
+<span class="price">₹2,499</span>
+<span class="old-price">₹3,199</span>
+</div>
+</div>
+
+
+<div class="product-card">
+<div class="product-img">
+<span class="badge">Trending</span>
+<img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Dress">
+<div class="actions">
+<button>Add to Cart</button>
+<button>Quick View</button>
+</div>
+</div>
+<div class="product-info">
+<h4>Floral Summer Wear</h4>
+<span class="price">₹1,799</span>
+<span class="old-price">₹2,299</span>
+</div>
+</div>
+
+
+<div class="product-card">
+<div class="product-img">
+<span class="badge">Hot</span>
+<img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Dress">
+<div class="actions">
+<button>Add to Cart</button>
+<button>Quick View</button>
+</div>
+</div>
+<div class="product-info">
+<h4>Party Wear Gown</h4>
+<span class="price">₹3,299</span>
+<span class="old-price">₹4,199</span>
+</div>
+</div>
+
+
+<div class="product-card">
+<div class="product-img">
+<span class="badge">New</span>
+<img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Dress">
+<div class="actions">
+<button>Add to Cart</button>
+<button>Quick View</button>
+</div>
+</div>
+<div class="product-info">
+<h4>Casual Daily Dress</h4>
+<span class="price">₹1,299</span>
+<span class="old-price">₹1,799</span>
+</div>
+</div>
+
+
+</div>
+</section>
+<section class="promo-section">
+    <div class="promo-content">
+        <span class="promo-tag">LIMITED TIME OFFER</span>
+        <h1>
+            Up to <span class="highlight">50% OFF</span><br>
+            Winter Collection
+        </h1>
+        <p>Upgrade your wardrobe with our exclusive seasonal styles.</p>
+
+        <button class="promo-btn">
+            Shop Now
+            <span></span>
+        </button>
+    </div>
+
+    <div class="promo-image">
+        <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg" alt="Winter Fashion">
+    </div>
+</section>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<section class="lookbook-section container my-5">
+  <h2 class="text-center mb-4">Lookbook & Style Inspiration</h2>
+
+  <div class="book-container mx-auto">
+    <div class="book">
+      <!-- Cover -->
+      <div class="cover">
+        <h3>Winter Lookbook</h3>
+        <p>Hover to Open</p>
+      </div>
+
+      <!-- Pages -->
+      <div class="pages">
+        <div class="page">
+            <a href="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg">
+          <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg"></a>
+        </div>
+        <div class="page">
+            <a href="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg">
+          <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg"></a>
+        </div>
+        <div class="page">
+            <a href="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg">
+          <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg"></a>
+        </div>
+        <div class="page">
+            <a href="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg">
+          <img src="Gemini_Generated_Image_dxa9y5dxa9y5dxa9.jpg"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="newsletter-section">
+  <div class="newsletter-overlay"></div>
+
+  <div class="newsletter-content">
+    <h2>Join Our Style Circle</h2>
+    <p>
+      Be the first to know about new collections, exclusive offers  
+      & fashion inspiration delivered straight to your inbox.
+    </p>
+
+    <form class="newsletter-form" id="newsletterForm">
+      <input 
+        type="email" 
+        id="newsletterEmail" 
+        placeholder="Enter your email address"
+        required
+      >
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <span class="newsletter-note">
+      We respect your privacy. Unsubscribe anytime.
+    </span>
+
+    <div class="newsletter-success" id="newsletterSuccess">
+      ✨ Thank you for joining our fashion family!
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="testimonials-section">
+  <h2 class="section-title">Loved by Our Customers in Dubai</h2>
+  <p class="section-subtitle">
+    Real experiences from fashion lovers who trust our brand
+  </p>
+
+  <div class="testimonials-container">
+    
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review">
+        “Absolutely stunning quality. The fabric and fitting exceeded my expectations. 
+        This brand truly understands luxury fashion.”
+      </p>
+      <h4>— Ayesha Al Mansoori</h4>
+      <span>Dubai</span>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="review">
+        “Elegant designs and fast delivery. I received so many compliments wearing this outfit.
+        Definitely my go-to fashion store now.”
+      </p>
+      <h4>— Omar Al Fahidi</h4>
+      <span>Dubai</span>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review">
+        “Premium feel and perfect finishing. The collection feels exclusive and stylish.
+        Highly recommended for modern fashion lovers.”
+      </p>
+      <h4>— Noor Al Zahra</h4>
+      <span>Dubai</span>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer class="fashion-footer">
+  <div class="footer-glow"></div>
+
+  <div class="footer-container">
+
+    <!-- Brand / Newsletter -->
+    <div class="footer-brand">
+      <h2>Ombre Attire</h2>
+      <p>
+        Where elegance meets modern fashion.  
+        Designed for confident women worldwide.
+      </p>
+
+      <form class="footer-newsletter" id="footerNewsletter">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>📍 Dubai, United Arab Emirates</p>
+      <p>📞 +971 50 123 4567</p>
+      <p>✉️ support@ombreattire.com</p>
+    </div>
+
+    <!-- Social & Payments -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Pinterest</a>
+        <a href="#">TikTok</a>
+      </div>
+
+      <h4 class="payment-title">We Accept</h4>
+      <div class="payments">
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>PayPal</span>
+        <span>Apple Pay</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Ombre Attire. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+
+
+<script>
+// Shrink header on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if(window.scrollY > 50){
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+});
+
+// Simple attention animation on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const tag = document.querySelector(".promo-tag");
+    tag.animate(
+        [
+            { transform: "scale(1)" },
+            { transform: "scale(1.1)" },
+            { transform: "scale(1)" }
+        ],
+        {
+            duration: 1200,
+            iterations: Infinity
+        }
+    );
+});
+
+
+
+
+
+
+const pages = document.querySelectorAll('.page');
+let currentPage = 0; // cover = 0
+
+/* NEXT PAGE */
+document.getElementById('nextPage').addEventListener('click', () => {
+  if (currentPage < pages.length - 1) {
+    pages[currentPage].classList.add('turned');
+    currentPage++;
+  }
+});
+
+/* PREVIOUS PAGE */
+document.getElementById('prevPage').addEventListener('click', () => {
+  if (currentPage > 0) {
+    currentPage--;
+    pages[currentPage].classList.remove('turned');
+  }
+});
+
+
+  const bookContainer = document.querySelector('.book-container');
+
+  window.addEventListener('scroll', () => {
+    const rect = bookContainer.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      bookContainer.classList.add('auto-open');
+    }
+  });
+
+
+
+
+
+  const newsletterForm = document.getElementById("newsletterForm");
+const newsletterSuccess = document.getElementById("newsletterSuccess");
+
+newsletterForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const emailInput = document.getElementById("newsletterEmail");
+
+  if (emailInput.value !== "") {
+    newsletterSuccess.style.display = "block";
+    emailInput.value = "";
+
+    setTimeout(() => {
+      newsletterSuccess.style.display = "none";
+    }, 4000);
+  }
+});
+
+
+
+
+const testimonialCards = document.querySelectorAll(".testimonial-card");
+
+testimonialCards.forEach(card => {
+  card.addEventListener("mousemove", () => {
+    card.style.boxShadow = "0 30px 70px rgba(255, 204, 102, 0.25)";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.boxShadow = "0 15px 40px rgba(0, 0, 0, 0.4)";
+  });
+});
+
+
+
+
+
+
+document
+  .getElementById("footerNewsletter")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("✨ Thank you for subscribing to Ombre Attire!");
+  });
+
+
+  
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
